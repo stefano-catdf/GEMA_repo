@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:citrus="http://www.citrusframework.org/schema/config"
+       xmlns:citrus-jms="http://www.citrusframework.org/schema/jms/config"
+       xmlns:citrus-ws="http://www.citrusframework.org/schema/ws/config"
+       xmlns:citrus-http="http://www.citrusframework.org/schema/http/config"
+       xmlns:citrus-test="http://www.citrusframework.org/schema/testcase"
+       xmlns:amq="http://activemq.apache.org/schema/core"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.citrusframework.org/schema/config http://www.citrusframework.org/schema/config/citrus-config.xsd
+       http://www.citrusframework.org/schema/jms/config http://www.citrusframework.org/schema/jms/config/citrus-jms-config.xsd
+       http://www.citrusframework.org/schema/ws/config http://www.citrusframework.org/schema/ws/config/citrus-ws-config.xsd
+       http://www.citrusframework.org/schema/http/config http://www.citrusframework.org/schema/http/config/citrus-http-config.xsd
+       http://www.citrusframework.org/schema/testcase http://www.citrusframework.org/schema/testcase/citrus-testcase.xsd
+       http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd">
+
+  <context:property-placeholder location="classpath:citrus.properties"/>
+
+  <citrus:schema-repository id="schemaRepository">
+    <citrus:schemas>
+      <citrus:schema id="ServiceWsdl" location="classpath:schemas/max-eaiJMS_concrete_bkp.wsdl" />
+    </citrus:schemas>
+  </citrus:schema-repository>
+
+  <citrus:global-variables>
+    <citrus:variable name="project.name" value="Citrus Integration Tests"/>
+  </citrus:global-variables>
+
+  <!-- Default namespace mappings used in XPath expression evaluations -->
+  <citrus:namespace-context>
+    <citrus:namespace prefix="hello" uri="http://citrusframework.org/schemas/samples/HelloService"/>
+  </citrus:namespace-context>
+
+  <bean id="soapJmsMessageConverter" class="com.consol.citrus.jms.message.SoapJmsMessageConverter"/>
+
+
+  <bean id="soapMessageFactory" class="org.springframework.ws.soap.saaj.SaajSoapMessageFactory">
+  </bean>
+
+
+  <!-- JMS endpoint -->
+  <citrus-jms:sync-endpoint id="GEMA_EndpointRequest"
+                            destination-name="Work001.q.sync"
+                            message-converter="soapJmsMessageConverter"
+                            timeout="10000"
+  />
+
+
+  <!-- JMS connection factory and message broker -->
+  <bean id="connectionFactory" class="com.tibco.tibjms.TibjmsConnectionFactory">
+    <property name="serverUrl" value="tcp://localhost:17222" />
+  </bean>
+</beans>

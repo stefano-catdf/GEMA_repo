@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: com.gema.testjms.SoapJMS_MaxEai_TEST
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 4.234 s <<< FAILURE! - in com.gema.testjms.SoapJMS_MaxEai_TEST
+soapJMSMaxEaiOk(com.gema.testjms.SoapJMS_MaxEai_TEST)  Time elapsed: 1.349 s  <<< FAILURE!
+com.consol.citrus.exceptions.TestCaseFailedException: Test case failed
+Caused by: com.consol.citrus.exceptions.ValidationException: Validation failed: Element names not equal, expected 'workDetails' but was 'Fault'
+Caused by: java.lang.IllegalArgumentException: Element names not equal, expected 'workDetails' but was 'Fault'
+

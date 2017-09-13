@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spring:beans xmlns="http://www.citrusframework.org/schema/testcase"
+              xmlns:jms="http://www.citrusframework.org/schema/jms/testcase"
+              xmlns:ws="http://www.citrusframework.org/schema/ws/testcase"
+              xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                  http://www.citrusframework.org/schema/jms/testcase http://www.citrusframework.org/schema/jms/testcase/citrus-jms-testcase.xsd
+                  http://www.citrusframework.org/schema/ws/testcase http://www.citrusframework.org/schema/ws/testcase/citrus-ws-testcase.xsd
+                  http://www.citrusframework.org/schema/testcase http://www.citrusframework.org/schema/testcase/citrus-testcase.xsd">
+
+    <testcase name="SoapJMS_MaxEai_TEST">
+        <meta-info>
+            <author>noi</author>
+            <creationdate>2017-09-12</creationdate>
+            <status>DRAFT</status>
+            <last-updated-by>noi</last-updated-by>
+            <last-updated-on>2017-09-12T19:38:21</last-updated-on>
+        </meta-info>
+
+        <description>calling Eai through soap over JMS</description>
+
+        <actions>
+            <echo>
+                <message>START TEST</message>
+            </echo>
+
+            <ws:send endpoint="GEMA_EndpointRequest">
+                <message>
+
+                    <data>
+                        <![CDATA[
+		<ns0:GetWorkDetailsRequest xmlns:ns0="http://www.gema.de/ESB/Service/ICE/Work-001">
+			<ns1:workDetails xmlns:ns1="http://www.gema.de/ESB/Schema/Mega/WorkDetails-001" xsdVersion="1">
+				<ns1:workDetail iceWorkKey="1"/>
+			</ns1:workDetails>
+		</ns0:GetWorkDetailsRequest>
+					  ]]>
+                    </data>
+                </message>
+                <header>
+                    <data>
+                        <![CDATA[
+		<ns:traceIdentifier xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns="http://www.gema.de/ESB/Schema/Common/BaseTypes-001" xmlns:ns0="http://schemas.xmlsoap.org/soap/envelope/">
+			<ns:bpId>1</ns:bpId>
+			<ns:bpName>Work1</ns:bpName>
+			<ns:boId>
+				<ns:name>A</ns:name>
+				<ns:value>A</ns:value>
+			</ns:boId>
+			<ns:callingApp>TEST</ns:callingApp>
+			<ns:initiator>TEST</ns:initiator>
+		</ns:traceIdentifier>
+]]>
+                    </data>
+                    <data>
+                        <![CDATA[
+		<ns:controllObject xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns="http://www.gema.de/ESB/Schema/Common/BaseTypes-001" xmlns:ns0="http://schemas.xmlsoap.org/soap/envelope/">
+			<ns:timeOut_s>20</ns:timeOut_s>
+			<ns:transactionId>1505127273191</ns:transactionId>
+		</ns:controllObject>
+]]>
+                    </data>
+                        <element name="Content_Type" value='text/xml; charset="utf-8"'/>
+                        <element name="Mime_Version" value="1.0"/>
+                        <element name="SoapAction" value="/Work001/getWorkDetails"/>
+                </header>
+            </ws:send>
+
+
+
+            <ws:receive endpoint="GEMA_EndpointRequest">
+                <message schema-validation="false">
+                    <data>
+                        <![CDATA[
+							 <?xml version="1.0" encoding="UTF-8"?>
+                             <ns1:workDetails xmlns:ns1 = "http://www.gema.de/ESB/Schema/Mega/WorkDetails-001" xsdVersion = "1">
+                                <ns1:workDetail iceWorkKey = "3"/>
+                             </ns1:workDetails>
+                        ]]>
+                    </data>
+                </message>
+            </ws:receive>
+
+        </actions>
+    </testcase>
+</spring:beans>

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-failsafe-plugin/xsd/failsafe-test-report.xsd" name="com.gema.testjms.SoapJMS_MaxEai_TEST" time="4.234" tests="1" errors="0" skipped="0" failures="1">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/opt/jdk1.8.0_60/jre/lib/amd64"/>
+    <property name="java.vm.version" value="25.60-b23"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/tibco/Documenti/citrusWorkspace/GEMA_INT-TEST/testjms"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="IT"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/home/tibco/Documenti/citrusWorkspace/GEMA_INT-TEST/testjms"/>
+    <property name="java.runtime.version" value="1.8.0_60-b27"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/opt/jdk1.8.0_60/jre/lib/endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Linux"/>
+    <property name="classworlds.conf" value="/home/tibco/apache-maven-3.5.0/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/u01/app/oracle/product/12.1.0/db_1/lib:/lib:/usr/lib:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="maven.conf" value="/home/tibco/apache-maven-3.5.0/conf"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="2.6.32-642.11.1.el6.x86_64"/>
+    <property name="library.jansi.path" value="/home/tibco/apache-maven-3.5.0/lib/jansi-native/linux64"/>
+    <property name="user.home" value="/home/tibco"/>
+    <property name="user.timezone" value="Europe/Rome"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="tibco"/>
+    <property name="java.class.path" value="/home/tibco/apache-maven-3.5.0/boot/plexus-classworlds-2.5.2.jar"/>
+    <property name="it.test" value="SoapJMS_MaxEai_TEST"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="/opt/jdk1.8.0_60/jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher integration-test -Dit.test=SoapJMS_MaxEai_TEST"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="it"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_60"/>
+    <property name="java.ext.dirs" value="/opt/jdk1.8.0_60/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="securerandom.source" value="file:/dev/./urandom"/>
+    <property name="sun.boot.class.path" value="/opt/jdk1.8.0_60/jre/lib/resources.jar:/opt/jdk1.8.0_60/jre/lib/rt.jar:/opt/jdk1.8.0_60/jre/lib/sunrsasign.jar:/opt/jdk1.8.0_60/jre/lib/jsse.jar:/opt/jdk1.8.0_60/jre/lib/jce.jar:/opt/jdk1.8.0_60/jre/lib/charsets.jar:/opt/jdk1.8.0_60/jre/lib/jfr.jar:/opt/jdk1.8.0_60/jre/classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="/home/tibco/apache-maven-3.5.0"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase name="soapJMSMaxEaiOk" classname="com.gema.testjms.SoapJMS_MaxEai_TEST" time="1.349">
+    <failure message="Test case failed" type="com.consol.citrus.exceptions.TestCaseFailedException">com.consol.citrus.exceptions.TestCaseFailedException: Test case failed
+Caused by: com.consol.citrus.exceptions.ValidationException: Validation failed: Element names not equal, expected 'workDetails' but was 'Fault'
+Caused by: java.lang.IllegalArgumentException: Element names not equal, expected 'workDetails' but was 'Fault'
+</failure>
+    <system-out><![CDATA[19:20:45,088 INFO         citrus.Citrus| Unable to locate Citrus application properties
+19:20:45,114 INFO  BeanDefinitionReader| Loading XML bean definitions from URL [file:/home/tibco/Documenti/citrusWorkspace/GEMA_INT-TEST/testjms/target/test-classes/citrus-context.xml]
+19:20:45,427 DEBUG BeanDefinitionReader| Loaded 10 bean definitions from location pattern [classpath*:citrus-context.xml]
+19:20:46,307 DEBUG .XsdSchemaRepository| Loading XSD schema resource citrus-http-message.xsd
+19:20:46,871 INFO         citrus.Citrus| 
+19:20:46,871 INFO         citrus.Citrus| ------------------------------------------------------------------------
+19:20:46,872 INFO         citrus.Citrus|        .__  __                       
+19:20:46,872 INFO         citrus.Citrus|   ____ |__|/  |________ __ __  ______
+19:20:46,872 INFO         citrus.Citrus| _/ ___\|  \   __\_  __ \  |  \/  ___/
+19:20:46,872 INFO         citrus.Citrus| \  \___|  ||  |  |  | \/  |  /\___ \ 
+19:20:46,872 INFO         citrus.Citrus|  \___  >__||__|  |__|  |____//____  >
+19:20:46,872 INFO         citrus.Citrus|      \/                           \/
+19:20:46,872 INFO         citrus.Citrus| 
+19:20:46,872 INFO         citrus.Citrus| C I T R U S  T E S T S  2.7.2
+19:20:46,873 INFO         citrus.Citrus| 
+19:20:46,873 INFO         citrus.Citrus| ------------------------------------------------------------------------
+19:20:46,873 DEBUG        citrus.Citrus| BEFORE TEST SUITE
+19:20:46,873 INFO         citrus.Citrus| 
+19:20:46,878 INFO         citrus.Citrus| 
+19:20:46,878 INFO         citrus.Citrus| BEFORE TEST SUITE: SUCCESS
+19:20:46,878 INFO         citrus.Citrus| ------------------------------------------------------------------------
+19:20:46,879 INFO         citrus.Citrus| 
+19:20:46,904 DEBUG t.TestContextFactory| Created new test context - using global variables: '{project.name=Citrus Integration Tests}'
+19:20:47,232 INFO         citrus.Citrus| 
+19:20:47,232 INFO         citrus.Citrus| ------------------------------------------------------------------------
+19:20:47,232 DEBUG        citrus.Citrus| STARTING TEST SoapJMS_MaxEai_TEST <com.gema.testjms>
+19:20:47,232 INFO         citrus.Citrus| 
+19:20:47,233 DEBUG      citrus.TestCase| Initializing test case
+19:20:47,233 DEBUG      citrus.TestCase| Global variables:
+19:20:47,233 DEBUG      citrus.TestCase| project.name = Citrus Integration Tests
+19:20:47,234 DEBUG  context.TestContext| Setting variable: citrus.test.name with value: 'SoapJMS_MaxEai_TEST'
+19:20:47,235 DEBUG  context.TestContext| Setting variable: citrus.test.package with value: 'com.gema.testjms'
+19:20:47,236 INFO         citrus.Citrus| 
+19:20:47,236 DEBUG        citrus.Citrus| TEST STEP 1/3: echo
+19:20:47,239 INFO    actions.EchoAction| START TEST
+19:20:47,239 INFO         citrus.Citrus| 
+19:20:47,240 DEBUG        citrus.Citrus| TEST STEP 1/3 SUCCESS
+19:20:47,240 INFO         citrus.Citrus| 
+19:20:47,240 DEBUG        citrus.Citrus| TEST STEP 2/3: send
+19:20:47,249 DEBUG ltCorrelationManager| Saving correlation key for 'citrus_message_correlator_GEMA_EndpointRequest:producer'
+19:20:47,250 DEBUG  context.TestContext| Setting variable: citrus_message_correlator_GEMA_EndpointRequest:producer with value: 'citrus_message_id = '9b0e98ba-b8e4-4406-9c8b-81bdb6a68b83''
+19:20:47,250 DEBUG   Logger.Message_OUT| SOAPMESSAGE [payload: <ns0:GetWorkDetailsRequest xmlns:ns0="http://www.gema.de/ESB/Service/ICE/Work-001">
+			<ns1:workDetails xmlns:ns1="http://www.gema.de/ESB/Schema/Mega/WorkDetails-001" xsdVersion="1">
+				<ns1:workDetail iceWorkKey="1"/>
+			</ns1:workDetails>
+		</ns0:GetWorkDetailsRequest>][headers: {citrus_message_id=9b0e98ba-b8e4-4406-9c8b-81bdb6a68b83, citrus_message_timestamp=1505236847241, Content_Type=text/xml; charset="utf-8", Mime_Version=1.0, SoapAction=/Work001/getWorkDetails}][header-data: [<ns:traceIdentifier xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns="http://www.gema.de/ESB/Schema/Common/BaseTypes-001" xmlns:ns0="http://schemas.xmlsoap.org/soap/envelope/">
+			<ns:bpId>1</ns:bpId>
+			<ns:bpName>Work1</ns:bpName>
+			<ns:boId>
+				<ns:name>A</ns:name>
+				<ns:value>A</ns:value>
+			</ns:boId>
+			<ns:callingApp>TEST</ns:callingApp>
+			<ns:initiator>TEST</ns:initiator>
+		</ns:traceIdentifier>, <ns:controllObject xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns="http://www.gema.de/ESB/Schema/Common/BaseTypes-001" xmlns:ns0="http://schemas.xmlsoap.org/soap/envelope/">
+			<ns:timeOut_s>20</ns:timeOut_s>
+			<ns:transactionId>1505127273191</ns:transactionId>
+		</ns:controllObject>]][attachments: []]
+19:20:47,251 WARN  oint.JmsSyncProducer| Not able to create a connection with connection factory 'ConnectionFactory[URL=tcp://localhost:17222;clientID=null]' when using setting 'publish-subscribe-domain' (=false)
+19:20:47,292 WARN  oint.JmsSyncProducer| Not able to create a session with connection factory 'ConnectionFactory[URL=tcp://localhost:17222;clientID=null]' when using setting 'publish-subscribe-domain' (=false)
+19:20:47,311 DEBUG pJmsMessageConverter| Creating SOAP message from payload: <ns0:GetWorkDetailsRequest xmlns:ns0="http://www.gema.de/ESB/Service/ICE/Work-001">
+			<ns1:workDetails xmlns:ns1="http://www.gema.de/ESB/Schema/Mega/WorkDetails-001" xsdVersion="1">
+				<ns1:workDetail iceWorkKey="1"/>
+			</ns1:workDetails>
+		</ns0:GetWorkDetailsRequest>
+19:20:47,470 DEBUG oint.JmsSyncProducer| Sending JMS message to destination: 'Work001.q.sync'
+19:20:47,489 INFO  oint.JmsSyncProducer| Message was sent to JMS destination: 'Work001.q.sync'
+19:20:47,489 DEBUG oint.JmsSyncProducer| Receiving reply message on destination: 'Queue[$TMP$.EMS-SERVER.449059B800D433.1]'
+19:20:48,023 INFO  oint.JmsSyncProducer| Received reply message on JMS destination: 'Queue[$TMP$.EMS-SERVER.449059B800D433.1]'
+19:20:48,023 DEBUG    Logger.Message_IN| JMSMESSAGE [payload: <?xml version="1.0" encoding="UTF-8"?><SOAP-ENV:Fault xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><faultcode xmlns="">SOAP-ENV:Server</faultcode><faultstring xmlns="">Internal Error</faultstring><faultactor xmlns=""/></SOAP-ENV:Fault>][headers: {citrus_message_id=458f4085-b207-44ba-b491-9428dd676087, citrus_message_timestamp=1505236847862, citrus_jms_timestamp=1505236847859, isFault=true, citrus_jms_deliveryMode=2, citrus_jms_redelivered=false, Content_Type=text/xml; charset="utf-8", citrus_jms_correlationId=ID:EMS-SERVER.449059B800D433:1, citrus_jms_replyTo=Queue[$TMP$.EMS-SERVER.449059B800D433.1], citrus_jms_expiration=0, JMSXDeliveryCount=1, Mime_Version=1.0, citrus_jms_priority=4, citrus_jms_messageId=ID:EMS-SERVER.449059B800D41F:34, id=95adba9c-4386-4d96-856f-228e4abe6303, citrus_jms_destination=Queue[$TMP$.EMS-SERVER.449059B800D433.1], timestamp=1505236847862}]
+19:20:48,024 DEBUG ltCorrelationManager| Saving correlated object for 'citrus_message_id = '9b0e98ba-b8e4-4406-9c8b-81bdb6a68b83''
+19:20:48,028 DEBUG oint.JmsSyncProducer| Delete temporary destination: 'Queue[$TMP$.EMS-SERVER.449059B800D433.1]'
+19:20:48,029 INFO         citrus.Citrus| 
+19:20:48,029 DEBUG        citrus.Citrus| TEST STEP 2/3 SUCCESS
+19:20:48,029 INFO         citrus.Citrus| 
+19:20:48,029 DEBUG        citrus.Citrus| TEST STEP 3/3: receive
+19:20:48,029 DEBUG ngCorrelationManager| Get correlation key for 'citrus_message_correlator_GEMA_EndpointRequest:producer'
+19:20:48,030 DEBUG ltCorrelationManager| Finding correlated object for 'citrus_message_id = '9b0e98ba-b8e4-4406-9c8b-81bdb6a68b83''
+19:20:48,127 DEBUG ageValidatorRegistry| Found 4 message validators for message type: xml
+19:20:48,127 DEBUG mXmlMessageValidator| Start XML message validation ...
+19:20:48,127 DEBUG mXmlMessageValidator| Start XML tree validation ...
+19:20:48,133 DEBUG    xml.XmlConfigurer| Found DOMImplementationLS: org.apache.xerces.dom.CoreDOMImplementationImpl@503d56b5
+19:20:48,134 DEBUG    xml.XmlConfigurer| Found DOMImplementationLS: org.apache.xerces.dom.DOMImplementationImpl@72bca894
+19:20:48,134 DEBUG    xml.XmlConfigurer| Found DOMImplementationLS: org.apache.xerces.dom.PSVIDOMImplementationImpl@433ffad1
+19:20:48,135 DEBUG    xml.XmlConfigurer| Found DOMImplementationLS: org.apache.xerces.impl.xs.XSImplementationImpl@1fc793c2
+19:20:48,135 DEBUG    xml.XmlConfigurer| Using DOMImplementationLS: org.apache.xerces.dom.CoreDOMImplementationImpl
+19:20:48,210 DEBUG mXmlMessageValidator| Received message:
+<?xml version="1.0" encoding="UTF-8"?><SOAP-ENV:Fault xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <faultcode xmlns="">SOAP-ENV:Server</faultcode>
+   <faultstring xmlns="">Internal Error</faultstring>
+   <faultactor xmlns=""/>
+</SOAP-ENV:Fault>
+
+19:20:48,211 DEBUG mXmlMessageValidator| Control message:
+<?xml version="1.0" encoding="UTF-8"?><ns1:workDetails xmlns:ns1="http://www.gema.de/ESB/Schema/Mega/WorkDetails-001" xsdVersion="1">
+   <ns1:workDetail iceWorkKey="3"/>
+</ns1:workDetails>
+
+19:20:48,213 DEBUG mXmlMessageValidator| Validating element: Fault (http://schemas.xmlsoap.org/soap/envelope/)
+19:20:48,219 ERROR mXmlMessageValidator| Failed to validate:
+<?xml version="1.0" encoding="UTF-8"?><SOAP-ENV:Fault xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <faultcode xmlns="">SOAP-ENV:Server</faultcode>
+   <faultstring xmlns="">Internal Error</faultstring>
+   <faultactor xmlns=""/>
+</SOAP-ENV:Fault>
+
+19:20:48,220 INFO         citrus.Citrus| 
+19:20:48,221 ERROR        citrus.Citrus| TEST FAILED SoapJMS_MaxEai_TEST <com.gema.testjms> Nested exception is: 
+com.consol.citrus.exceptions.ValidationException: Validation failed: Element names not equal, expected 'workDetails' but was 'Fault'
+	at com.consol.citrus.validation.xml.DomXmlMessageValidator.validateMessage(DomXmlMessageValidator.java:115)
+	at com.consol.citrus.validation.xml.DomXmlMessageValidator.validateMessage(DomXmlMessageValidator.java:68)
+	at com.consol.citrus.validation.AbstractMessageValidator.validateMessage(AbstractMessageValidator.java:46)
+	at com.consol.citrus.actions.ReceiveMessageAction.validateMessage(ReceiveMessageAction.java:236)
+	at com.consol.citrus.ws.actions.ReceiveSoapMessageAction.validateMessage(ReceiveSoapMessageAction.java:57)
+	at com.consol.citrus.actions.ReceiveMessageAction.doExecute(ReceiveMessageAction.java:137)
+	at com.consol.citrus.actions.AbstractTestAction.execute(AbstractTestAction.java:42)
+	at com.consol.citrus.TestCase.executeAction(TestCase.java:229)
+	at com.consol.citrus.TestCase.doExecute(TestCase.java:145)
+	at com.consol.citrus.actions.AbstractTestAction.execute(AbstractTestAction.java:42)
+	at com.consol.citrus.Citrus.run(Citrus.java:281)
+	at com.consol.citrus.testng.AbstractTestNGCitrusTest.run(AbstractTestNGCitrusTest.java:112)
+	at com.consol.citrus.testng.AbstractTestNGCitrusTest.run(AbstractTestNGCitrusTest.java:69)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:221)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:657)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:135)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:112)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:146)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:386)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:323)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:143)
+Caused by: java.lang.IllegalArgumentException: Element names not equal, expected 'workDetails' but was 'Fault'
+	at org.springframework.util.Assert.isTrue(Assert.java:92)
+	at com.consol.citrus.validation.xml.DomXmlMessageValidator.doElementNameValidation(DomXmlMessageValidator.java:292)
+	at com.consol.citrus.validation.xml.DomXmlMessageValidator.doElement(DomXmlMessageValidator.java:490)
+	at com.consol.citrus.validation.xml.DomXmlMessageValidator.validateXmlTree(DomXmlMessageValidator.java:409)
+	at com.consol.citrus.validation.xml.DomXmlMessageValidator.validateXmlTree(DomXmlMessageValidator.java:405)
+	at com.consol.citrus.validation.xml.DomXmlMessageValidator.validateMessageContent(DomXmlMessageValidator.java:360)
+	at com.consol.citrus.validation.xml.DomXmlMessageValidator.validateMessage(DomXmlMessageValidator.java:96)
+	... 37 more
+19:20:48,225 INFO         citrus.Citrus| ------------------------------------------------------------------------
+19:20:48,226 INFO         citrus.Citrus| 
+]]></system-out>
+  </testcase>
+</testsuite>
