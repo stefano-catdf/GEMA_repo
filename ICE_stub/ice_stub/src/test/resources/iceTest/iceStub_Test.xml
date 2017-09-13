@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spring:beans xmlns="http://www.citrusframework.org/schema/testcase" 
+              xmlns:jms="http://www.citrusframework.org/schema/jms/testcase"
+              xmlns:ws="http://www.citrusframework.org/schema/ws/testcase"
+              xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+                  http://www.citrusframework.org/schema/jms/testcase http://www.citrusframework.org/schema/jms/testcase/citrus-jms-testcase.xsd
+                  http://www.citrusframework.org/schema/ws/testcase http://www.citrusframework.org/schema/ws/testcase/citrus-ws-testcase.xsd
+                  http://www.citrusframework.org/schema/testcase http://www.citrusframework.org/schema/testcase/citrus-testcase.xsd">
+    
+    <testcase name="iceStub_Test">
+        <meta-info>
+            <author>catenate</author>
+            <creationdate>2017-09-12</creationdate>
+            <status>DRAFT</status>
+            <last-updated-by>catenate</last-updated-by>
+            <last-updated-on>2017-09-12T11:33:12</last-updated-on>
+        </meta-info>
+        
+        <description>this is the ICE stub receiving soap http requests</description>
+        
+        <actions>
+            <echo>
+                <message>Starting HTTP Server </message>
+            </echo>
+
+			<receive endpoint="ICE_server">
+				<message schema-validation="false">
+					<data>
+						<![CDATA[
+<iac:iac9361 xmlns:iac="http://iac9361.wsbeans.iseries/">
+  <!--Optional:-->
+  <arg0>
+    <!--Optional:-->
+    <_IACSESSION>
+      <!--Optional:-->
+      <_USERNUMBER>1000.0</_USERNUMBER>
+      <!--Optional:-->
+      <_USERID>string</_USERID>
+      <!--Optional:-->
+      <_LANGCODE>string</_LANGCODE>
+      <!--Optional:-->
+      <_SHWNATCHAR>string</_SHWNATCHAR>
+    </_IACSESSION>
+    <!--Optional:-->
+    <_IAC9361I>
+      <!--Optional:-->
+      <_WORKKEY>1000.0</_WORKKEY>
+      <!--Optional:-->
+      <_REPLIST>string</_REPLIST>
+      <!--Optional:-->
+      <_WRKREFLIST>string</_WRKREFLIST>
+      <!--Optional:-->
+      <_NOTELIST>string</_NOTELIST>
+    </_IAC9361I>
+  </arg0>
+</iac:iac9361>
+					 ]]>
+					</data>
+				</message>
+			</receive>
+
+			<send endpoint="ICE_server">
+				<message>
+					<data>
+						<![CDATA[
+     <ns0:iac9361Response xmlns:ns0="http://iac9361.wsbeans.iseries/">
+         <return>
+            <_IACRESLIST>
+               <_RETNOOFROW>10.0</_RETNOOFROW>
+               <_ENDOFFILE>string</_ENDOFFILE>
+            </_IACRESLIST>
+            <_IACRETMSGS>
+               <_MSGSEVER>10.0</_MSGSEVER>
+               <_MSGID>string</_MSGID>
+               <_MSGFIELD>string</_MSGFIELD>
+               <_MSGTABLE>string</_MSGTABLE>
+               <_MSGTEXT>string</_MSGTEXT>
+               <_MICROSECS>10.0</_MICROSECS>
+            </_IACRETMSGS>
+         </return>
+      </ns0:iac9361Response>
+
+					 ]]>
+		             </data>
+				</message>
+			</send>
+        </actions>
+    </testcase>
+</spring:beans>
