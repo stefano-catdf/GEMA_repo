@@ -9,4 +9,4 @@ public class SoapJMS_MaxEai_TEST extends AbstractTestNGCitrusTest {
     @CitrusXmlTest(name = "SoapJMS_MaxEai_TEST")
     public void soapJMSMaxEaiOk() {}
 }
- 
+ o

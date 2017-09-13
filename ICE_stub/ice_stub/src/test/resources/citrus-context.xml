@@ -42,11 +42,11 @@
   <bean id="messageFactory" class="org.springframework.ws.soap.saaj.SaajSoapMessageFactory"/>
 
 
-  <!-- SOAP WS Server with static response -->
+  <!-- SOAP WS Server -->
   <citrus-ws:server id="ICE_server"
                     port="${server.port}"
                     auto-start="true"
-                    timeout="20000"
+                    timeout="100000"
                     resource-base="src/it/resources"
 
   />

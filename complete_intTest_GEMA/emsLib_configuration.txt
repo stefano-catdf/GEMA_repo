@@ -1,0 +1,4 @@
+eseguire i seguenti comandi per importare le librerie EMS:
+
+- mvn install:install-file -Dfile= <pathToEmsLibFolder>/tibjms.jar  -DgroupId=com.tibco -DartifactId=tibjms -Dversion=8.3 -Dpackaging=jar
+- mvn install:install-file -Dfile= <pathToEmsLibFolder>/jms.2.0.jar  -DgroupId=com.tibco -DartifactId=jms.2.0 -Dversion=8.3 -Dpackaging=jar
