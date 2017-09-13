@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spring:beans xmlns="http://www.citrusframework.org/schema/testcase"
+              xmlns:jms="http://www.citrusframework.org/schema/jms/testcase"
+              xmlns:ws="http://www.citrusframework.org/schema/ws/testcase"
+              xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                  http://www.citrusframework.org/schema/jms/testcase http://www.citrusframework.org/schema/jms/testcase/citrus-jms-testcase.xsd
+                  http://www.citrusframework.org/schema/ws/testcase http://www.citrusframework.org/schema/ws/testcase/citrus-ws-testcase.xsd
+                  http://www.citrusframework.org/schema/testcase http://www.citrusframework.org/schema/testcase/citrus-testcase.xsd">
+
+
+    <testcase name="TestCase_1">
+        <meta-info>
+            <author>Catenate</author>
+            <creationdate>2017-09-13</creationdate>
+            <status>DRAFT</status>
+            <last-updated-by>Catenate</last-updated-by>
+            <last-updated-on>2017-09-13T19:24:21</last-updated-on>
+        </meta-info>
+
+        <description> Testing GEMA_ADP_ICE process : 'TestCase Description here'</description>
+
+
+        <actions>
+
+            <!-- Action_1  : send soap/JMS-->
+            <echo>
+                <message>SENDING SOAP/JMS REQUEST TO ADP(EAI)</message>
+            </echo>
+            <ws:send endpoint="ADP_JMS_ENDPOINT">
+                <message>
+
+                    <data>
+                        <![CDATA[
+                        <ns0:GetWorkDetailsRequest xmlns:ns0="http://www.gema.de/ESB/Service/ICE/Work-001">
+                            <ns1:workDetails xmlns:ns1="http://www.gema.de/ESB/Schema/Mega/WorkDetails-001" xsdVersion="1">
+                                <ns1:workDetail iceWorkKey="1"/>
+                            </ns1:workDetails>
+                        </ns0:GetWorkDetailsRequest>
+                        ]]>
+                    </data>
+                </message>
+                <header>
+                    <data>
+                        <![CDATA[
+                                <ns:traceIdentifier xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns="http://www.gema.de/ESB/Schema/Common/BaseTypes-001" xmlns:ns0="http://schemas.xmlsoap.org/soap/envelope/">
+                                    <ns:bpId>1</ns:bpId>
+                                    <ns:bpName>Work1</ns:bpName>
+                                    <ns:boId>
+                                        <ns:name>A</ns:name>
+                                        <ns:value>A</ns:value>
+                                    </ns:boId>
+                                    <ns:callingApp>TEST</ns:callingApp>
+                                    <ns:initiator>TEST</ns:initiator>
+                                </ns:traceIdentifier>
+                        ]]>
+                    </data>
+                    <data>
+                        <![CDATA[
+                            <ns:controllObject xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns="http://www.gema.de/ESB/Schema/Common/BaseTypes-001" xmlns:ns0="http://schemas.xmlsoap.org/soap/envelope/">
+                                <ns:timeOut_s>20</ns:timeOut_s>
+                                <ns:transactionId>1505127273191</ns:transactionId>
+                            </ns:controllObject>
+                        ]]>
+                    </data>
+                    <element name="Content_Type" value='text/xml; charset="utf-8"'/>
+                    <element name="Mime_Version" value="1.0"/>
+                    <element name="SoapAction" value="/Work001/getWorkDetails"/>
+                </header>
+            </ws:send>
+
+
+            <!-- Action_2  : ICE receive SOAP/HTTP request-->
+            <echo>
+                <message>ICE RECEIVE REQUEST FROM ADP (EAI)</message>
+            </echo>
+            <ws:receive endpoint="ICE_server">
+                <message schema-validation="false">
+                    <data>
+
+                        <![CDATA[
+							<iac:iac9361 xmlns:iac="http://iac9361.wsbeans.iseries/">
+							  <!--Optional:-->
+							  <arg0>
+								<!--Optional:-->
+								<_IACSESSION>
+								  <!--Optional:-->
+								  <_USERNUMBER>1000.0</_USERNUMBER>
+								  <!--Optional:-->
+								  <_USERID>string</_USERID>
+								  <!--Optional:-->
+								  <_LANGCODE>string</_LANGCODE>
+								  <!--Optional:-->
+								  <_SHWNATCHAR>string</_SHWNATCHAR>
+								</_IACSESSION>
+								<!--Optional:-->
+								<_IAC9361I>
+								  <!--Optional:-->
+								  <_WORKKEY>1000.0</_WORKKEY>
+								  <!--Optional:-->
+								  <_REPLIST>string</_REPLIST>
+								  <!--Optional:-->
+								  <_WRKREFLIST>string</_WRKREFLIST>
+								  <!--Optional:-->
+								  <_NOTELIST>string</_NOTELIST>
+								</_IAC9361I>
+							  </arg0>
+							</iac:iac9361>
+					 ]]>
+                    </data>
+                </message>
+            </ws:receive>
+
+
+            <!-- Action_3  : ICE reply to ADP-->
+            <echo>
+                <message>ICE REPLY TO ADP (EAI)</message>
+            </echo>
+            <ws:send endpoint="ICE_server">
+                <message>
+                    <data>
+                        <![CDATA[
+							 <ns0:iac9361Response xmlns:ns0="http://iac9361.wsbeans.iseries/">
+								 <return>
+									<_IACRESLIST>
+									   <_RETNOOFROW>10.0</_RETNOOFROW>
+									   <_ENDOFFILE>string</_ENDOFFILE>
+									</_IACRESLIST>
+									<_IACRETMSGS>
+									   <_MSGSEVER>10.0</_MSGSEVER>
+									   <_MSGID>string</_MSGID>
+									   <_MSGFIELD>string</_MSGFIELD>
+									   <_MSGTABLE>string</_MSGTABLE>
+									   <_MSGTEXT>string</_MSGTEXT>
+									   <_MICROSECS>10.0</_MICROSECS>
+									</_IACRETMSGS>
+								 </return>
+							  </ns0:iac9361Response>
+					 ]]>
+                    </data>
+                </message>
+            </ws:send>
+
+
+            <!-- Action_4  : ADP reply to MAX through soap/JMS-->
+            <echo>
+                <message>ADP REPLY TO MAX </message>
+            </echo>
+            <ws:receive endpoint="ADP_JMS_ENDPOINT">
+                <message schema-validation="false">
+                    <data>
+                        <![CDATA[
+							 <?xml version="1.0" encoding="UTF-8"?>
+                             <ns1:workDetails xmlns:ns1 = "http://www.gema.de/ESB/Schema/Mega/WorkDetails-001" xsdVersion = "1">
+                                <ns1:workDetail iceWorkKey = "3"/>
+                             </ns1:workDetails>
+                        ]]>
+                    </data>
+                </message>
+            </ws:receive>
+
+        </actions>
+    </testcase>
+</spring:beans>
