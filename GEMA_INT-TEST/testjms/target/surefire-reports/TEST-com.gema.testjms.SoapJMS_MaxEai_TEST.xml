@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.gema.testjms.SoapJMS_MaxEai_TEST" time="2.578" tests="1" errors="0" skipped="0" failures="1">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/usr/java/jdk1.8.0_45/jre/lib/amd64"/>
+    <property name="java.vm.version" value="25.45-b02"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/tibco/GEMA_gitHub/GEMA_repo/GEMA_INT-TEST/testjms"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="GB"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="test" value="SoapJMS_MaxEai_TEST"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/home/tibco/GEMA_gitHub/GEMA_repo/GEMA_INT-TEST/testjms"/>
+    <property name="java.runtime.version" value="1.8.0_45-b14"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/usr/java/jdk1.8.0_45/jre/lib/endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Linux"/>
+    <property name="classworlds.conf" value="/opt/maven/apache-maven-3.5.0/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="maven.conf" value="/opt/maven/apache-maven-3.5.0/conf"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="3.10.0-514.26.2.el7.x86_64"/>
+    <property name="library.jansi.path" value="/opt/maven/apache-maven-3.5.0/lib/jansi-native/linux64"/>
+    <property name="user.home" value="/home/tibco"/>
+    <property name="user.timezone" value="Europe/Berlin"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="tibco"/>
+    <property name="java.class.path" value="/opt/maven/apache-maven-3.5.0/boot/plexus-classworlds-2.5.2.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="/usr/java/jdk1.8.0_45/jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher integration-test -Dtest=SoapJMS_MaxEai_TEST"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_45"/>
+    <property name="java.ext.dirs" value="/usr/java/jdk1.8.0_45/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="securerandom.source" value="file:/dev/./urandom"/>
+    <property name="sun.boot.class.path" value="/usr/java/jdk1.8.0_45/jre/lib/resources.jar:/usr/java/jdk1.8.0_45/jre/lib/rt.jar:/usr/java/jdk1.8.0_45/jre/lib/sunrsasign.jar:/usr/java/jdk1.8.0_45/jre/lib/jsse.jar:/usr/java/jdk1.8.0_45/jre/lib/jce.jar:/usr/java/jdk1.8.0_45/jre/lib/charsets.jar:/usr/java/jdk1.8.0_45/jre/lib/jfr.jar:/usr/java/jdk1.8.0_45/jre/classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="/opt/maven/apache-maven-3.5.0"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase name="soapJMSMaxEaiOk" classname="com.gema.testjms.SoapJMS_MaxEai_TEST" time="0.298">
+    <failure message="Test case failed" type="com.consol.citrus.exceptions.TestCaseFailedException">com.consol.citrus.exceptions.TestCaseFailedException: Test case failed
+Caused by: com.consol.citrus.exceptions.CitrusRuntimeException: javax.jms.JMSSecurityException: authentication failed
+Caused by: javax.jms.JMSSecurityException: authentication failed
+</failure>
+    <system-out><![CDATA[09:44:42,319 INFO         citrus.Citrus| Unable to locate Citrus application properties
+09:44:42,339 INFO  BeanDefinitionReader| Loading XML bean definitions from URL [file:/home/tibco/GEMA_gitHub/GEMA_repo/GEMA_INT-TEST/testjms/target/test-classes/citrus-context.xml]
+09:44:42,639 DEBUG BeanDefinitionReader| Loaded 10 bean definitions from location pattern [classpath*:citrus-context.xml]
+09:44:43,268 DEBUG .XsdSchemaRepository| Loading XSD schema resource citrus-http-message.xsd
+09:44:43,620 INFO         citrus.Citrus| 
+09:44:43,621 INFO         citrus.Citrus| ------------------------------------------------------------------------
+09:44:43,621 INFO         citrus.Citrus|        .__  __                       
+09:44:43,621 INFO         citrus.Citrus|   ____ |__|/  |________ __ __  ______
+09:44:43,621 INFO         citrus.Citrus| _/ ___\|  \   __\_  __ \  |  \/  ___/
+09:44:43,621 INFO         citrus.Citrus| \  \___|  ||  |  |  | \/  |  /\___ \ 
+09:44:43,621 INFO         citrus.Citrus|  \___  >__||__|  |__|  |____//____  >
+09:44:43,621 INFO         citrus.Citrus|      \/                           \/
+09:44:43,621 INFO         citrus.Citrus| 
+09:44:43,621 INFO         citrus.Citrus| C I T R U S  T E S T S  2.7.2
+09:44:43,621 INFO         citrus.Citrus| 
+09:44:43,621 INFO         citrus.Citrus| ------------------------------------------------------------------------
+09:44:43,621 DEBUG        citrus.Citrus| BEFORE TEST SUITE
+09:44:43,621 INFO         citrus.Citrus| 
+09:44:43,621 INFO         citrus.Citrus| 
+09:44:43,621 INFO         citrus.Citrus| BEFORE TEST SUITE: SUCCESS
+09:44:43,621 INFO         citrus.Citrus| ------------------------------------------------------------------------
+09:44:43,621 INFO         citrus.Citrus| 
+09:44:43,638 DEBUG t.TestContextFactory| Created new test context - using global variables: '{project.name=Citrus Integration Tests}'
+09:44:43,790 INFO         citrus.Citrus| 
+09:44:43,790 INFO         citrus.Citrus| ------------------------------------------------------------------------
+09:44:43,790 DEBUG        citrus.Citrus| STARTING TEST SoapJMS_MaxEai_TEST <com.gema.testjms>
+09:44:43,790 INFO         citrus.Citrus| 
+09:44:43,790 DEBUG      citrus.TestCase| Initializing test case
+09:44:43,790 DEBUG      citrus.TestCase| Global variables:
+09:44:43,790 DEBUG      citrus.TestCase| project.name = Citrus Integration Tests
+09:44:43,791 DEBUG  context.TestContext| Setting variable: citrus.test.name with value: 'SoapJMS_MaxEai_TEST'
+09:44:43,791 DEBUG  context.TestContext| Setting variable: citrus.test.package with value: 'com.gema.testjms'
+09:44:43,792 INFO         citrus.Citrus| 
+09:44:43,792 DEBUG        citrus.Citrus| TEST STEP 1/3: echo
+09:44:43,792 INFO    actions.EchoAction| START TEST
+09:44:43,792 INFO         citrus.Citrus| 
+09:44:43,792 DEBUG        citrus.Citrus| TEST STEP 1/3 SUCCESS
+09:44:43,792 INFO         citrus.Citrus| 
+09:44:43,792 DEBUG        citrus.Citrus| TEST STEP 2/3: send
+09:44:43,799 DEBUG ltCorrelationManager| Saving correlation key for 'citrus_message_correlator_GEMA_EndpointRequest:producer'
+09:44:43,799 DEBUG  context.TestContext| Setting variable: citrus_message_correlator_GEMA_EndpointRequest:producer with value: 'citrus_message_id = '1db8547c-3860-40dc-9f80-cbf88a7e4a53''
+09:44:43,799 DEBUG   Logger.Message_OUT| SOAPMESSAGE [payload: <ns0:GetWorkDetailsRequest xmlns:ns0="http://www.gema.de/ESB/Service/ICE/Work-001">
+			<ns1:workDetails xmlns:ns1="http://www.gema.de/ESB/Schema/Mega/WorkDetails-001" xsdVersion="1">
+				<ns1:workDetail iceWorkKey="1"/>
+			</ns1:workDetails>
+		</ns0:GetWorkDetailsRequest>][headers: {citrus_message_id=1db8547c-3860-40dc-9f80-cbf88a7e4a53, citrus_message_timestamp=1505375083795, Content_Type=text/xml; charset="utf-8", Mime_Version=1.0, SoapAction=/Work001/getWorkDetails}][header-data: [<ns:traceIdentifier xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns="http://www.gema.de/ESB/Schema/Common/BaseTypes-001" xmlns:ns0="http://schemas.xmlsoap.org/soap/envelope/">
+			<ns:bpId>1</ns:bpId>
+			<ns:bpName>Work1</ns:bpName>
+			<ns:boId>
+				<ns:name>A</ns:name>
+				<ns:value>A</ns:value>
+			</ns:boId>
+			<ns:callingApp>TEST</ns:callingApp>
+			<ns:initiator>TEST</ns:initiator>
+		</ns:traceIdentifier>, <ns:controllObject xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns="http://www.gema.de/ESB/Schema/Common/BaseTypes-001" xmlns:ns0="http://schemas.xmlsoap.org/soap/envelope/">
+			<ns:timeOut_s>20</ns:timeOut_s>
+			<ns:transactionId>1505127273191</ns:transactionId>
+		</ns:controllObject>]][attachments: []]
+09:44:43,800 WARN  oint.JmsSyncProducer| Not able to create a connection with connection factory 'ConnectionFactory[URL=tcp://localhost:17222;clientID=null]' when using setting 'publish-subscribe-domain' (=false)
+09:44:43,864 DEBUG oint.JmsSyncProducer| Delete temporary destination: 'null'
+09:44:43,865 INFO         citrus.Citrus| 
+09:44:43,865 ERROR        citrus.Citrus| TEST FAILED SoapJMS_MaxEai_TEST <com.gema.testjms> Nested exception is: 
+com.consol.citrus.exceptions.CitrusRuntimeException: javax.jms.JMSSecurityException: authentication failed
+	at com.consol.citrus.jms.endpoint.JmsSyncProducer.send(JmsSyncProducer.java:147)
+	at com.consol.citrus.actions.SendMessageAction.doExecute(SendMessageAction.java:118)
+	at com.consol.citrus.actions.AbstractTestAction.execute(AbstractTestAction.java:42)
+	at com.consol.citrus.TestCase.executeAction(TestCase.java:229)
+	at com.consol.citrus.TestCase.doExecute(TestCase.java:145)
+	at com.consol.citrus.actions.AbstractTestAction.execute(AbstractTestAction.java:42)
+	at com.consol.citrus.Citrus.run(Citrus.java:281)
+	at com.consol.citrus.testng.AbstractTestNGCitrusTest.run(AbstractTestNGCitrusTest.java:112)
+	at com.consol.citrus.testng.AbstractTestNGCitrusTest.run(AbstractTestNGCitrusTest.java:69)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:221)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:657)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:135)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:112)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:146)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:386)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:323)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:143)
+Caused by: javax.jms.JMSSecurityException: authentication failed
+	at com.tibco.tibjms.Tibjmsx.buildException(Tibjmsx.java:741)
+	at com.tibco.tibjms.TibjmsConnection._create(TibjmsConnection.java:1404)
+	at com.tibco.tibjms.TibjmsConnection.<init>(TibjmsConnection.java:4333)
+	at com.tibco.tibjms.TibjmsxCFImpl._createImpl(TibjmsxCFImpl.java:209)
+	at com.tibco.tibjms.TibjmsxCFImpl._createConnection(TibjmsxCFImpl.java:253)
+	at com.tibco.tibjms.TibjmsConnectionFactory.createConnection(TibjmsConnectionFactory.java:39)
+	at com.consol.citrus.jms.endpoint.JmsSyncProducer.createConnection(JmsSyncProducer.java:199)
+	at com.consol.citrus.jms.endpoint.JmsSyncProducer.send(JmsSyncProducer.java:84)
+	... 33 more
+09:44:43,868 INFO         citrus.Citrus| ------------------------------------------------------------------------
+09:44:43,868 INFO         citrus.Citrus| 
+]]></system-out>
+  </testcase>
+</testsuite>

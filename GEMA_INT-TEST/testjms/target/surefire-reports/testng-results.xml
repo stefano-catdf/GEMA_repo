@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Surefire suite" duration-ms="303" started-at="2017-09-14T07:44:43Z" finished-at="2017-09-14T07:44:43Z">
+    <groups>
+    </groups>
+    <test name="Surefire test" duration-ms="303" started-at="2017-09-14T07:44:43Z" finished-at="2017-09-14T07:44:43Z">
+      <class name="com.gema.testjms.SoapJMS_MaxEai_TEST">
+        <test-method status="PASS" signature="beforeSuite(org.testng.ITestContext)[pri:0, instance:com.gema.testjms.SoapJMS_MaxEai_TEST@7b227d8d]" name="beforeSuite" is-config="true" duration-ms="1462" started-at="2017-09-14T09:44:42Z" finished-at="2017-09-14T09:44:43Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@24a1c17f]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.gema.testjms.SoapJMS_MaxEai_TEST@7b227d8d]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="1" started-at="2017-09-14T09:44:43Z" finished-at="2017-09-14T09:44:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.gema.testjms.SoapJMS_MaxEai_TEST@7b227d8d]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="0" started-at="2017-09-14T09:44:43Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2017-09-14T09:44:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.gema.testjms.SoapJMS_MaxEai_TEST@7b227d8d]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2017-09-14T09:44:43Z" finished-at="2017-09-14T09:44:43Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.gema.testjms.SoapJMS_MaxEai_TEST.soapJMSMaxEaiOk()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="FAIL" signature="soapJMSMaxEaiOk()[pri:0, instance:com.gema.testjms.SoapJMS_MaxEai_TEST@7b227d8d]" name="soapJMSMaxEaiOk" duration-ms="282" started-at="2017-09-14T09:44:43Z" finished-at="2017-09-14T09:44:43Z">
+          <exception class="com.consol.citrus.exceptions.TestCaseFailedException">
+            <message>
+              <![CDATA[Test case failed]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[com.consol.citrus.exceptions.TestCaseFailedException: Test case failed
+	at com.consol.citrus.TestCase.executeAction(TestCase.java:236)
+	at com.consol.citrus.TestCase.doExecute(TestCase.java:145)
+	at com.consol.citrus.actions.AbstractTestAction.execute(AbstractTestAction.java:42)
+	at com.consol.citrus.Citrus.run(Citrus.java:281)
+	at com.consol.citrus.testng.AbstractTestNGCitrusTest.run(AbstractTestNGCitrusTest.java:112)
+	at com.consol.citrus.testng.AbstractTestNGCitrusTest.run(AbstractTestNGCitrusTest.java:69)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:221)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:657)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:135)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:112)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:146)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:386)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:323)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:143)
+Caused by: com.consol.citrus.exceptions.CitrusRuntimeException: javax.jms.JMSSecurityException: authentication failed
+	at com.consol.citrus.jms.endpoint.JmsSyncProducer.send(JmsSyncProducer.java:147)
+	at com.consol.citrus.actions.SendMessageAction.doExecute(SendMessageAction.java:118)
+	at com.consol.citrus.actions.AbstractTestAction.execute(AbstractTestAction.java:42)
+	at com.consol.citrus.TestCase.executeAction(TestCase.java:229)
+	... 30 more
+Caused by: javax.jms.JMSSecurityException: authentication failed
+	at com.tibco.tibjms.Tibjmsx.buildException(Tibjmsx.java:741)
+	at com.tibco.tibjms.TibjmsConnection._create(TibjmsConnection.java:1404)
+	at com.tibco.tibjms.TibjmsConnection.<init>(TibjmsConnection.java:4333)
+	at com.tibco.tibjms.TibjmsxCFImpl._createImpl(TibjmsxCFImpl.java:209)
+	at com.tibco.tibjms.TibjmsxCFImpl._createConnection(TibjmsxCFImpl.java:253)
+	at com.tibco.tibjms.TibjmsConnectionFactory.createConnection(TibjmsConnectionFactory.java:39)
+	at com.consol.citrus.jms.endpoint.JmsSyncProducer.createConnection(JmsSyncProducer.java:199)
+	at com.consol.citrus.jms.endpoint.JmsSyncProducer.send(JmsSyncProducer.java:84)
+	... 33 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- com.consol.citrus.exceptions.TestCaseFailedException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- soapJMSMaxEaiOk -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.gema.testjms.SoapJMS_MaxEai_TEST@7b227d8d]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2017-09-14T09:44:43Z" finished-at="2017-09-14T09:44:43Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.gema.testjms.SoapJMS_MaxEai_TEST.soapJMSMaxEaiOk()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.gema.testjms.SoapJMS_MaxEai_TEST@7b227d8d]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2017-09-14T09:44:43Z" finished-at="2017-09-14T09:44:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+        <test-method status="PASS" signature="afterSuite(org.testng.ITestContext)[pri:0, instance:com.gema.testjms.SoapJMS_MaxEai_TEST@7b227d8d]" name="afterSuite" is-config="true" duration-ms="49" started-at="2017-09-14T09:44:43Z" finished-at="2017-09-14T09:44:44Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@24a1c17f]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- com.gema.testjms.SoapJMS_MaxEai_TEST -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
