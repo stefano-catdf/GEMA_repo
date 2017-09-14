@@ -23,11 +23,11 @@
 
         <actions>
 
-            <!-- Action_1  : send soap/JMS-->
+            <!-- Action_1  : send soap/JMS
             <echo>
                 <message>SENDING SOAP/JMS REQUEST TO ADP(EAI)</message>
-            </echo>
-            <ws:send endpoint="ADP_JMS_ENDPOINT">
+            </echo>-->
+            <send endpoint="ADP_JMS_ENDPOINT" actor="max_eai" >
                 <message>
 
                     <data>
@@ -67,97 +67,138 @@
                     <element name="Mime_Version" value="1.0"/>
                     <element name="SoapAction" value="/Work001/getWorkDetails"/>
                 </header>
-            </ws:send>
+            </send>
 
 
-            <!-- Action_2  : ICE receive SOAP/HTTP request-->
+            <!-- Action_2  : ICE receive SOAP/HTTP request
             <echo>
                 <message>ICE RECEIVE REQUEST FROM ADP (EAI)</message>
-            </echo>
-            <ws:receive endpoint="ICE_server">
+            </echo>-->
+            
+            <receive endpoint="ICE_server">
                 <message schema-validation="false">
                     <data>
-
                         <![CDATA[
 							<iac:iac9361 xmlns:iac="http://iac9361.wsbeans.iseries/">
-							  <!--Optional:-->
+							  <!--Optional:--> 
 							  <arg0>
-								<!--Optional:-->
-								<_IACSESSION>
-								  <!--Optional:-->
-								  <_USERNUMBER>1000.0</_USERNUMBER>
-								  <!--Optional:-->
-								  <_USERID>string</_USERID>
-								  <!--Optional:-->
-								  <_LANGCODE>string</_LANGCODE>
-								  <!--Optional:-->
-								  <_SHWNATCHAR>string</_SHWNATCHAR>
-								</_IACSESSION>
-								<!--Optional:-->
-								<_IAC9361I>
-								  <!--Optional:-->
-								  <_WORKKEY>1000.0</_WORKKEY>
-								  <!--Optional:-->
-								  <_REPLIST>string</_REPLIST>
-								  <!--Optional:-->
-								  <_WRKREFLIST>string</_WRKREFLIST>
-								  <!--Optional:-->
-								  <_NOTELIST>string</_NOTELIST>
-								</_IAC9361I>
-							  </arg0>
+									<_IACSESSION>
+										<_USERNUMBER>0.0</_USERNUMBER>
+										<_USERID>GEMA</_USERID>
+										<_LANGCODE>EN</_LANGCODE>
+										<_SHWNATCHAR>Y</_SHWNATCHAR>
+									</_IACSESSION>
+									<_IAC9361I>
+										<_WORKKEY>1.0</_WORKKEY>
+										<_REPLIST>Y</_REPLIST>
+										<_WRKREFLIST>N</_WRKREFLIST>
+										<_NOTELIST>N</_NOTELIST>
+									</_IAC9361I>
+								</arg0>  
 							</iac:iac9361>
-					 ]]>
+					    ]]>
                     </data>
                 </message>
-            </ws:receive>
+            </receive>
 
 
-            <!-- Action_3  : ICE reply to ADP-->
+            <!-- Action_3  : ICE reply to ADP
             <echo>
                 <message>ICE REPLY TO ADP (EAI)</message>
-            </echo>
+            </echo> -->
             <ws:send endpoint="ICE_server">
                 <message>
                     <data>
                         <![CDATA[
-							 <ns0:iac9361Response xmlns:ns0="http://iac9361.wsbeans.iseries/">
-								 <return>
+							<ns0:iac9361Response xmlns:ns0 = "http://iac9361.wsbeans.iseries/">
+								<return>
 									<_IACRESLIST>
-									   <_RETNOOFROW>10.0</_RETNOOFROW>
-									   <_ENDOFFILE>string</_ENDOFFILE>
+										<_RETNOOFROW>0</_RETNOOFROW>
 									</_IACRESLIST>
 									<_IACRETMSGS>
-									   <_MSGSEVER>10.0</_MSGSEVER>
-									   <_MSGID>string</_MSGID>
-									   <_MSGFIELD>string</_MSGFIELD>
-									   <_MSGTABLE>string</_MSGTABLE>
-									   <_MSGTEXT>string</_MSGTEXT>
-									   <_MICROSECS>10.0</_MICROSECS>
+										<_MSGSEVER>0</_MSGSEVER>
+										<_MSGTEXT>messaaggio L3</_MSGTEXT>
 									</_IACRETMSGS>
-								 </return>
-							  </ns0:iac9361Response>
+									<_IAC9361D>
+										<_WORKKEY>1</_WORKKEY>
+										<_WORKTITLE>Mex L3 Mancante</_WORKTITLE>
+										<_WORKSTATUS>1</_WORKSTATUS>
+									</_IAC9361D>
+									<_IAC9361L1>
+										<_LOCAFFNBR>4</_LOCAFFNBR>
+										<_NAME>mexL3</_NAME>
+										<_FIRSTNAME>gab</_FIRSTNAME>
+										<_CAECODE>PA</_CAECODE>
+										<_MECEXCEPT>L3</_MECEXCEPT>
+									</_IAC9361L1>
+									<_IAC9361L2>
+										<_REPCODE>s</_REPCODE>
+										<_NAME>s</_NAME>
+									</_IAC9361L2>
+									<_IAC9361L4>
+										<_NOTETEXT>Ciao</_NOTETEXT>
+									</_IAC9361L4>
+								</return>
+							</ns0:iac9361Response>
 					 ]]>
                     </data>
                 </message>
             </ws:send>
 
 
-            <!-- Action_4  : ADP reply to MAX through soap/JMS-->
+            <!-- Action_4  : ADP reply to MAX through soap/JMS
             <echo>
                 <message>ADP REPLY TO MAX </message>
-            </echo>
-            <ws:receive endpoint="ADP_JMS_ENDPOINT">
-                <message schema-validation="false">
+            </echo>-->
+            <receive endpoint="ADP_JMS_ENDPOINT" actor="max_eai" >
+                <message>
                     <data>
                         <![CDATA[
-							 <?xml version="1.0" encoding="UTF-8"?>
-                             <ns1:workDetails xmlns:ns1 = "http://www.gema.de/ESB/Schema/Mega/WorkDetails-001" xsdVersion = "1">
-                                <ns1:workDetail iceWorkKey = "3"/>
-                             </ns1:workDetails>
-                        ]]>
+							<?xml version="1.0" encoding="UTF-8"?>
+			                	<ns2:workDetails xmlns:ns2 = "http://www.gema.de/ESB/Schema/Mega/WorkDetails-001" xsdVersion = "1">
+									<ns2:workDetail iceWorkKey = "1">
+										<ns2:status>
+											<ns2:errorCode>OK</ns2:errorCode>
+											<ns2:errorMessage>messaaggio L3</ns2:errorMessage>
+										</ns2:status>
+										<ns2:work>
+											<ns2:workStatusDetails>
+												<ns2:iceStatus>1</ns2:iceStatus>
+												<ns2:iceStatusDesc>Work Fully Documented</ns2:iceStatusDesc>
+												<ns2:comments>
+													<ns2:comment>Ciao</ns2:comment>
+												</ns2:comments>
+											</ns2:workStatusDetails>
+											<ns2:interestedParties>
+												<ns2:interestedParty roleCode = "COMPOSER" source = "ICE" type = "ARTIST">
+													<ns2:part type = "FIRST_NAME">gab</ns2:part>
+													<ns2:part type = "LAST_NAME">mexL3</ns2:part>
+													<ns2:ipBaseNumber/>
+													<ns2:ipNameNumber/>
+													<ns2:iceIpBaseKey/>
+													<ns2:iceIpNameKey/>
+													<ns2:societyIpNumbers>
+														<ns2:societyIpNumber>
+															<ns2:cisac/>
+															<ns2:name/>
+															<ns2:ipNumber>4</ns2:ipNumber>
+														</ns2:societyIpNumber>
+													</ns2:societyIpNumbers>
+												</ns2:interestedParty>
+											</ns2:interestedParties>
+											<ns2:repertoires>
+												<ns2:repertoire>
+													<ns2:id>s</ns2:id>
+													<ns2:name>s</ns2:name>
+												</ns2:repertoire>
+											</ns2:repertoires>
+										</ns2:work>
+									</ns2:workDetail>
+							</ns2:workDetails>
+                                                     ]]>
                     </data>
                 </message>
-            </ws:receive>
+            </receive>
 
         </actions>
     </testcase>

@@ -47,8 +47,6 @@
                     port="${server.port}"
                     auto-start="true"
                     timeout="100000"
-                    resource-base="src/it/resources"
-
   />
 
 </beans>

@@ -15,7 +15,24 @@
   </properties>
   
   <dependencies>
+
+    <!-- Tibco EMS -->
+
+    <dependency>
+      <groupId>com.tibco</groupId>
+      <artifactId>tibjms</artifactId>
+      <version>8.3</version>
+    </dependency>
+    <dependency>
+      <groupId>com.tibco</groupId>
+      <artifactId>jms-2.0</artifactId>
+      <version>8.3</version>
+    </dependency>
+
+
+
     <!-- Citrus -->
+
     <dependency>
       <groupId>com.consol.citrus</groupId>
       <artifactId>citrus-core</artifactId>

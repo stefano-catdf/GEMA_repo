@@ -31,45 +31,26 @@
 
 						<![CDATA[
 							<iac:iac9361 xmlns:iac="http://iac9361.wsbeans.iseries/">
-							  <!--Optional:-->
+							  <!--Optional:--> 
 							  <arg0>
-								<!--Optional:-->
-								<_IACSESSION>
-								  <!--Optional:-->
-								  <_USERNUMBER>1000.0</_USERNUMBER>
-								  <!--Optional:-->
-								  <_USERID>string</_USERID>
-								  <!--Optional:-->
-								  <_LANGCODE>string</_LANGCODE>
-								  <!--Optional:-->
-								  <_SHWNATCHAR>string</_SHWNATCHAR>
-								</_IACSESSION>
-								<!--Optional:-->
-								<_IAC9361I>
-								  <!--Optional:-->
-								  <_WORKKEY>1000.0</_WORKKEY>
-								  <!--Optional:-->
-								  <_REPLIST>string</_REPLIST>
-								  <!--Optional:-->
-								  <_WRKREFLIST>string</_WRKREFLIST>
-								  <!--Optional:-->
-								  <_NOTELIST>string</_NOTELIST>
-								</_IAC9361I>
-							  </arg0>
+									<_IACSESSION>
+										<_USERNUMBER>0.0</_USERNUMBER>
+										<_USERID>GEMA</_USERID>
+										<_LANGCODE>EN</_LANGCODE>
+										<_SHWNATCHAR>Y</_SHWNATCHAR>
+									</_IACSESSION>
+									<_IAC9361I>
+										<_WORKKEY>1.0</_WORKKEY>
+										<_REPLIST>Y</_REPLIST>
+										<_WRKREFLIST>N</_WRKREFLIST>
+										<_NOTELIST>N</_NOTELIST>
+									</_IAC9361I>
+								</arg0>  
 							</iac:iac9361>
-					 ]]>
+						]]>
 					</data>
 				</message>
 			</receive>
-
-
-
-
-
-
-
-
-
 
 
 

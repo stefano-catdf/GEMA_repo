@@ -35,21 +35,33 @@
     <bean id="soapJmsMessageConverter" class="com.consol.citrus.jms.message.SoapJmsMessageConverter"/>
 
     <bean id="soapMessageFactory" class="org.springframework.ws.soap.saaj.SaajSoapMessageFactory"/>
-
+	
+	
+	
+	<citrus:actor id="max_eai" name="MAX_EAI"/>
+	
     <!-- JMS endpoint -->
     <citrus-jms:sync-endpoint id="ADP_JMS_ENDPOINT"
                               destination-name="Work001.q.sync"
                               message-converter="soapJmsMessageConverter"
-                              timeout="10000"
+                              timeout="20000"
+							  actor="max_eai"
     />
+
+
+   
     <!-- JMS connection factory and message broker -->
     <bean id="connectionFactory" class="com.tibco.tibjms.TibjmsConnectionFactory">
         <property name="serverUrl" value="tcp://localhost:17222" />
-        <!--    TOGLIERE IL COMMENTO !!!
         <property name="UserName" value="admin" />
         <property name="UserPassword" value="admin123" />
-        -->
+        
     </bean>
+
+
+
+
+
 
 
 
@@ -59,25 +71,8 @@
     <citrus-ws:server id="ICE_server"
                       port="${server.port}"
                       auto-start="true"
-                      timeout="20000"
-                      resource-base="src/it/resources"
+                      timeout="30000"
 
     />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </beans>
