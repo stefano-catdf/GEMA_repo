@@ -1,0 +1,70 @@
+Maven configuration
+
+
+1- open a shell
+2- choose a folder, which will be the future maven folder parent location
+
+3- launch the following commad : 
+
+	$ wget  http://apache.panu.it/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz
+
+
+4- extract the tar. file  launching this command:
+ 	
+	$  tar xzvf apache-maven-3.5.0-bin.tar.gz
+
+
+5- Add the "bin" directory of the created directory apache-maven-3.5.0 to the PATH environment variable : 
+
+		- $ cd /home/tibco
+		- $ vi .bash_profile
+		- add this text , without backslash at the end of the paths : 
+		
+		export MAVEN_HOME=<pathToMavenFolder>
+		export MAVEN_OPTS="-Xms256m -Xmx512m"
+
+		- add to the "$PATH" variable  ':$MAVEN_HOME/bin'. example : "PATH=$PATH:$HOME/bin:$MAVEN_HOME/bin"
+		
+		- copy all the variables
+
+		- save and exit
+		
+		- $ cd /home/tibco
+		- $ vi .bashrc		
+		- paste all the variables copied
+
+		- save and exit
+
+
+		- $ source .bash_profile
+		- $ source .bashrc
+
+
+6-  launch "mvn -v" in a new shell to confirm the configuration. The result should look similar to : 
+
+Apache Maven 3.3.3 (7994120775791599e205a5524ec3e0dfe41d4a06; 2015-04-22T04:57:37-07:00)
+Maven home: /opt/apache-maven-3.3.3
+Java version: 1.8.0_45, vendor: Oracle Corporation
+Java home: /Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "mac os x", version: "10.8.5", arch: "x86_64", family: "mac"
+
+
+----------------------------------------------
+
+IMPORT TIBCO EMS LIBRARIES : 
+
+- open a shell
+- launch the following commands : 
+
+$ mvn install:install-file -Dfile= <pathToEmsLibFolder>/tibjms.jar  -DgroupId=com.tibco -DartifactId=tibjms -Dversion=8.3 -Dpackaging=jar
+$ mvn install:install-file -Dfile= <pathToEmsLibFolder>/jms.2.0.jar  -DgroupId=com.tibco -DartifactId=jms.2.0 -Dversion=8.3 -Dpackaging=jar
+
+
+verify the installation going to the folder :
+ 
+$ /home/tibco/.m2/repository/com/tibco
+
+
+
+
