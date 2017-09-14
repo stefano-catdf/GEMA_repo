@@ -9,8 +9,14 @@ import com.consol.citrus.testng.AbstractTestNGCitrusTest;
 
  */
 @Test
+
 public class TestCase_1 extends AbstractTestNGCitrusTest {
 
-    @CitrusXmlTest(name = "TestCase_1")
+
+	@CitrusXmlTest(name = "TestCase_1")
     public void testCase1Gema() {}
+
+ 
 }
+
+

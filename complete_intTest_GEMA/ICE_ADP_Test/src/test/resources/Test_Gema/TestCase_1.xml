@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <spring:beans xmlns="http://www.citrusframework.org/schema/testcase"
               xmlns:jms="http://www.citrusframework.org/schema/jms/testcase"
+              xmlns:citrus-jms="http://www.citrusframework.org/schema/jms/config"
               xmlns:ws="http://www.citrusframework.org/schema/ws/testcase"
               xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              
+     
               xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                   http://www.citrusframework.org/schema/jms/testcase http://www.citrusframework.org/schema/jms/testcase/citrus-jms-testcase.xsd
                   http://www.citrusframework.org/schema/ws/testcase http://www.citrusframework.org/schema/ws/testcase/citrus-ws-testcase.xsd
                   http://www.citrusframework.org/schema/testcase http://www.citrusframework.org/schema/testcase/citrus-testcase.xsd">
 
+        
 
     <testcase name="TestCase_1">
         <meta-info>
@@ -22,12 +26,13 @@
 
 
         <actions>
-
-            <!-- Action_1  : send soap/JMS
+        
+			<parallel>
+			<!-- Action_1  : send soap/JMS
             <echo>
                 <message>SENDING SOAP/JMS REQUEST TO ADP(EAI)</message>
             </echo>-->
-            <send endpoint="ADP_JMS_ENDPOINT" actor="max_eai" >
+            <ws:send endpoint="ADP_JMS_ENDPOINT" >
                 <message>
 
                     <data>
@@ -63,21 +68,22 @@
                             </ns:controllObject>
                         ]]>
                     </data>
+                    <element name="citrus_jms_correlationId" value="SOAPJMS_REQUEST"/>
                     <element name="Content_Type" value='text/xml; charset="utf-8"'/>
                     <element name="Mime_Version" value="1.0"/>
                     <element name="SoapAction" value="/Work001/getWorkDetails"/>
                 </header>
-            </send>
+            </ws:send>
 
 
-            <!-- Action_2  : ICE receive SOAP/HTTP request
-            <echo>
-                <message>ICE RECEIVE REQUEST FROM ADP (EAI)</message>
-            </echo>-->
-            
-            <receive endpoint="ICE_server">
-                <message schema-validation="false">
-                    <data>
+			<sequential>
+			
+			<!-- Action_2 : ICE receive SOAP/HTTP request <echo> <message>ICE RECEIVE 
+				REQUEST FROM ADP (EAI)</message> </echo> -->
+
+			<ws:receive endpoint="ICE_server">
+				<message schema-validation="false">
+					<data>
                         <![CDATA[
 							<iac:iac9361 xmlns:iac="http://iac9361.wsbeans.iseries/">
 							  <!--Optional:--> 
@@ -98,17 +104,16 @@
 							</iac:iac9361>
 					    ]]>
                     </data>
-                </message>
-            </receive>
+				</message>
+			</ws:receive>
 
 
-            <!-- Action_3  : ICE reply to ADP
-            <echo>
-                <message>ICE REPLY TO ADP (EAI)</message>
-            </echo> -->
-            <ws:send endpoint="ICE_server">
-                <message>
-                    <data>
+
+			<!-- Action_3 : ICE reply to ADP <echo> <message>ICE REPLY TO ADP (EAI)</message> 
+				</echo> -->
+			<ws:send endpoint="ICE_server">
+				<message>
+					<data>
                         <![CDATA[
 							<ns0:iac9361Response xmlns:ns0 = "http://iac9361.wsbeans.iseries/">
 								<return>
@@ -142,64 +147,69 @@
 							</ns0:iac9361Response>
 					 ]]>
                     </data>
-                </message>
-            </ws:send>
+				</message>
+			</ws:send>
 
+			</sequential>
+			</parallel>
 
             <!-- Action_4  : ADP reply to MAX through soap/JMS
             <echo>
                 <message>ADP REPLY TO MAX </message>
             </echo>-->
-            <receive endpoint="ADP_JMS_ENDPOINT" actor="max_eai" >
-                <message>
+            <ws:receive endpoint="ADP_JMS_ENDPOINT" >
+                <message schema-validation="false">
                     <data>
                         <![CDATA[
 							<?xml version="1.0" encoding="UTF-8"?>
-			                	<ns2:workDetails xmlns:ns2 = "http://www.gema.de/ESB/Schema/Mega/WorkDetails-001" xsdVersion = "1">
-									<ns2:workDetail iceWorkKey = "1">
-										<ns2:status>
-											<ns2:errorCode>OK</ns2:errorCode>
-											<ns2:errorMessage>messaaggio L3</ns2:errorMessage>
-										</ns2:status>
-										<ns2:work>
-											<ns2:workStatusDetails>
-												<ns2:iceStatus>1</ns2:iceStatus>
-												<ns2:iceStatusDesc>Work Fully Documented</ns2:iceStatusDesc>
-												<ns2:comments>
-													<ns2:comment>Ciao</ns2:comment>
-												</ns2:comments>
-											</ns2:workStatusDetails>
-											<ns2:interestedParties>
-												<ns2:interestedParty roleCode = "COMPOSER" source = "ICE" type = "ARTIST">
-													<ns2:part type = "FIRST_NAME">gab</ns2:part>
-													<ns2:part type = "LAST_NAME">mexL3</ns2:part>
-													<ns2:ipBaseNumber/>
-													<ns2:ipNameNumber/>
-													<ns2:iceIpBaseKey/>
-													<ns2:iceIpNameKey/>
-													<ns2:societyIpNumbers>
-														<ns2:societyIpNumber>
-															<ns2:cisac/>
-															<ns2:name/>
-															<ns2:ipNumber>4</ns2:ipNumber>
-														</ns2:societyIpNumber>
-													</ns2:societyIpNumbers>
-												</ns2:interestedParty>
-											</ns2:interestedParties>
-											<ns2:repertoires>
-												<ns2:repertoire>
-													<ns2:id>s</ns2:id>
-													<ns2:name>s</ns2:name>
-												</ns2:repertoire>
-											</ns2:repertoires>
-										</ns2:work>
-									</ns2:workDetail>
-							</ns2:workDetails>
+															
+								<ns0:GetWorkDetailsResponse xmlns:ns0="http://www.gema.de/ESB/Service/ICE/Work-001">
+								   <ns1:workDetails xmlns:ns1="http://www.gema.de/ESB/Schema/Mega/WorkDetails-001" xsdVersion="1">
+								      <ns1:workDetail iceWorkKey="1">
+								         <ns1:status>
+								            <ns1:errorCode>OK</ns1:errorCode>
+								            <ns1:errorMessage>messaaggio L3</ns1:errorMessage>
+								         </ns1:status>
+								         <ns1:work>
+								            <ns1:workStatusDetails>
+								               <ns1:iceStatus>1</ns1:iceStatus>
+								               <ns1:iceStatusDesc>Work Fully Documented</ns1:iceStatusDesc>
+								               <ns1:comments>
+								                  <ns1:comment>Ciao</ns1:comment>
+								               </ns1:comments>
+								            </ns1:workStatusDetails>
+								            <ns1:interestedParties>
+								               <ns1:interestedParty roleCode="COMPOSER" source="ICE" type="ARTIST">
+								                  <ns1:part type="FIRST_NAME">gab</ns1:part>
+								                  <ns1:part type="LAST_NAME">mexL3</ns1:part>
+								                  <ns1:ipBaseNumber/>
+								                  <ns1:ipNameNumber/>
+								                  <ns1:iceIpBaseKey/>
+								                  <ns1:iceIpNameKey/>
+								                  <ns1:societyIpNumbers>
+								                     <ns1:societyIpNumber>
+								                        <ns1:cisac/>
+								                        <ns1:name/>
+								                        <ns1:ipNumber>4</ns1:ipNumber>
+								                     </ns1:societyIpNumber>
+								                  </ns1:societyIpNumbers>
+								               </ns1:interestedParty>
+								            </ns1:interestedParties>
+								            <ns1:repertoires>
+								               <ns1:repertoire>
+								                  <ns1:id>s</ns1:id>
+								                  <ns1:name>s</ns1:name>
+								               </ns1:repertoire>
+								            </ns1:repertoires>
+								         </ns1:work>
+								      </ns1:workDetail>
+								   </ns1:workDetails>
+								</ns0:GetWorkDetailsResponse>							
                                                      ]]>
                     </data>
                 </message>
-            </receive>
-
+            </ws:receive>
+           
         </actions>
     </testcase>
 </spring:beans>

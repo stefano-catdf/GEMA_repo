@@ -7,17 +7,33 @@
        xmlns:citrus-http="http://www.citrusframework.org/schema/http/config"
        xmlns:citrus-test="http://www.citrusframework.org/schema/testcase"
        xmlns:context="http://www.springframework.org/schema/context"
+       
+       
+       
+       
+      
+       
+            
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
        http://www.citrusframework.org/schema/config http://www.citrusframework.org/schema/config/citrus-config.xsd
        http://www.citrusframework.org/schema/jms/config http://www.citrusframework.org/schema/jms/config/citrus-jms-config.xsd
        http://www.citrusframework.org/schema/ws/config http://www.citrusframework.org/schema/ws/config/citrus-ws-config.xsd
        http://www.citrusframework.org/schema/http/config http://www.citrusframework.org/schema/http/config/citrus-http-config.xsd
-       http://www.citrusframework.org/schema/testcase http://www.citrusframework.org/schema/testcase/citrus-testcase.xsd">
+       http://www.citrusframework.org/schema/testcase http://www.citrusframework.org/schema/testcase/citrus-testcase.xsd
+      
+      
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.citrusframework.org/schema/jms/config
+        http://www.citrusframework.org/schema/jms/config/citrus-jms-config.xsd"
+       
+       
+     >
 	
     <!-- Common settings -->
     <context:property-placeholder location="classpath:citrus.properties"/>
-
+   
     <citrus:schema-repository id="schemaRepository">
         <citrus:schemas>
             <citrus:schema id="ServiceWsdl" location="classpath:schemas/max-eaiJMS_concrete_bkp.wsdl" />
@@ -45,8 +61,10 @@
                               destination-name="Work001.q.sync"
                               message-converter="soapJmsMessageConverter"
                               timeout="20000"
-							  actor="max_eai"
+							
     />
+    
+    
 
 
    
@@ -60,18 +78,13 @@
 
 
 
-
-
-
-
-
     <!--  ICE PARAMETERS  -->
 
     <!-- ICE WS Server -->
     <citrus-ws:server id="ICE_server"
                       port="${server.port}"
                       auto-start="true"
-                      timeout="30000"
+                      timeout="10000"
 
     />
 
