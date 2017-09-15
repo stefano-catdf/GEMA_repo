@@ -9,7 +9,7 @@ Maven configuration
 	$ wget  http://apache.panu.it/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz
 
 
-4- extract the tar. file  launching this command:
+4- extract the tar.gz file  launching this command:
  	
 	$  tar xzvf apache-maven-3.5.0-bin.tar.gz
 
@@ -18,14 +18,14 @@ Maven configuration
 
 		- $ cd /home/tibco
 		- $ vi .bash_profile
-		- add this text , without backslash at the end of the paths : 
+		- add this text to the file , without backslash at the end of the paths : 
 		
 		export MAVEN_HOME=<pathToMavenFolder>
 		export MAVEN_OPTS="-Xms256m -Xmx512m"
 
 		- add to the "$PATH" variable  ':$MAVEN_HOME/bin'. example : "PATH=$PATH:$HOME/bin:$MAVEN_HOME/bin"
 		
-		- copy all the variables
+		- copy all the variables just added
 
 		- save and exit
 		
@@ -34,7 +34,6 @@ Maven configuration
 		- paste all the variables copied
 
 		- save and exit
-
 
 		- $ source .bash_profile
 		- $ source .bashrc
@@ -66,5 +65,14 @@ verify the installation going to the folder :
 $ /home/tibco/.m2/repository/com/tibco
 
 
+------------------------------------
+START  CITRUS TESTS :
 
+- open a shell
+- go to the citrus project folder (the one containing the  file pom.xml )
+- launch the following command :
 
+$ mvn integration-test
+or
+
+$ mvn integration-test -Dtest=<nameOfTheTestCase-without'.xml'>
