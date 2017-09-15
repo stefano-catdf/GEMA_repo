@@ -13,7 +13,7 @@
 
         
 
-    <testcase name="TestCase_1">
+    <testcase name="TestCase_3">
         <meta-info>
             <author>Catenate</author>
             <creationdate>2017-09-13</creationdate>
@@ -22,7 +22,7 @@
             <last-updated-on>2017-09-13T19:24:21</last-updated-on>
         </meta-info>
 
-        <description> TestCase 1 :  single work detail request. WorkKey=1 . The response is valid.</description>
+        <description> TestCase 3 :  single work detail request. WorkKey=3 .  The ICE response does not contains the structure _ IAC9361L3.</description>
 
 
         <actions>
@@ -39,7 +39,7 @@
                         <![CDATA[
                         <ns0:GetWorkDetailsRequest xmlns:ns0="http://www.gema.de/ESB/Service/ICE/Work-001">
                             <ns1:workDetails xmlns:ns1="http://www.gema.de/ESB/Schema/Mega/WorkDetails-001" xsdVersion="1">
-                                <ns1:workDetail iceWorkKey="1"/>
+                                <ns1:workDetail iceWorkKey="3"/>
                             </ns1:workDetails>
                         </ns0:GetWorkDetailsRequest>
                         ]]>
@@ -95,7 +95,7 @@
 										<_SHWNATCHAR>Y</_SHWNATCHAR>
 									</_IACSESSION>
 									<_IAC9361I>
-										<_WORKKEY>1.0</_WORKKEY>
+										<_WORKKEY>3.0</_WORKKEY>
 										<_REPLIST>Y</_REPLIST>
 										<_WRKREFLIST>N</_WRKREFLIST>
 										<_NOTELIST>N</_NOTELIST>
@@ -115,43 +115,36 @@
 				<message>
 					<data>
                         <![CDATA[
-					        <ns0:iac9361Response xmlns:ns0 = "http://iac9361.wsbeans.iseries/">
-							            <return>
-							                <_IACRESLIST>
-							                    <_RETNOOFROW>0</_RETNOOFROW>
-							                </_IACRESLIST>
-							                <_IACRETMSGS>
-							                    <_MSGSEVER>0</_MSGSEVER>
-							                    <_MSGTEXT>mesgText 1</_MSGTEXT>
-							                </_IACRETMSGS>
-							                <_IAC9361D>
-							                    <_WORKKEY>1</_WORKKEY>
-							                    <_WORKTITLE>Work title 1</_WORKTITLE>
-							                    <_WORKSTATUS>1</_WORKSTATUS>
-							                </_IAC9361D>
-							                <_IAC9361L1>
-							                    <_LOCAFFNBR>4</_LOCAFFNBR>
-							                    <_NAME>name 1</_NAME>
-							                    <_FIRSTNAME>firstname 1</_FIRSTNAME>
-							                    <_CAECODE>PA</_CAECODE>
-							                    <_MECEXCEPT>mecexcept 1</_MECEXCEPT>
-							                    <_PERFSOCCDE>perfsoccde 1</_PERFSOCCDE>
-							                    <_PERFSOCACR>socacr 1</_PERFSOCACR>
-							                </_IAC9361L1>
-							                <_IAC9361L2>
-							                    <_REPCODE>repcode 1</_REPCODE>
-							                    <_NAME>name 1</_NAME>
-							                </_IAC9361L2>
-							                <_IAC9361L3>
-							                    <_SOCCODE>SOCCODE 1</_SOCCODE>
-							                    <_SOCACRO>GEMA</_SOCACRO>
-							                    <_WRKREF>C</_WRKREF>
-							                </_IAC9361L3>
-							                <_IAC9361L4>
-							                    <_NOTETEXT>Ciao</_NOTETEXT>
-							                </_IAC9361L4>
-							            </return>
-							        </ns0:iac9361Response>
+							<ns0:iac9361Response xmlns:ns0 = "http://iac9361.wsbeans.iseries/">												
+										<return>
+											<_IACRESLIST>
+												<_RETNOOFROW>0</_RETNOOFROW>
+											</_IACRESLIST>
+											<_IACRETMSGS>
+												<_MSGSEVER>0</_MSGSEVER>
+												<_MSGTEXT>msgText 3</_MSGTEXT>
+											</_IACRETMSGS>
+											<_IAC9361D>
+												<_WORKKEY>3</_WORKKEY>
+												<_WORKTITLE>worktitle 3</_WORKTITLE>
+												<_WORKSTATUS>1</_WORKSTATUS>
+											</_IAC9361D>
+											<_IAC9361L1>
+												<_LOCAFFNBR>4</_LOCAFFNBR>
+												<_NAME>name 3</_NAME>
+												<_FIRSTNAME>firstname 3</_FIRSTNAME>
+												<_CAECODE>PA</_CAECODE>
+												<_MECEXCEPT>mecexcept 3</_MECEXCEPT>
+											</_IAC9361L1>
+											<_IAC9361L2>
+												<_REPCODE>repcode 3</_REPCODE>
+												<_NAME>name 3</_NAME>
+											</_IAC9361L2>
+											<_IAC9361L4>
+												<_NOTETEXT>notetext 3</_NOTETEXT>
+											</_IAC9361L4>
+										</return>
+									</ns0:iac9361Response>
       								 ]]>
                     </data>
 				</message>
@@ -167,52 +160,49 @@
             <ws:receive endpoint="ADP_JMS_ENDPOINT" >
                 <message schema-validation="false">
                     <data>
-                        <![CDATA[
-						        <ns1:GetWorkDetailsResponse xmlns:ns1 = "http://www.gema.de/ESB/Service/ICE/Work-001">
-						            <ns2:workDetails xmlns:ns2 = "http://www.gema.de/ESB/Schema/Mega/WorkDetails-001" xsdVersion = "1">
-						                <ns2:workDetail iceWorkKey = "1">
-						                    <ns2:status>
-						                        <ns2:errorCode>OK</ns2:errorCode>
-						                        <ns2:errorMessage>mesgText 1</ns2:errorMessage>
-						                    </ns2:status>
-						                    <ns2:work>
-						                        <ns2:workStatusDetails>
-						                            <ns2:iceStatus>1</ns2:iceStatus>
-						                            <ns2:iceStatusDesc>Work Fully Documented</ns2:iceStatusDesc>
-						                            <ns2:comments>
-						                                <ns2:comment>Ciao</ns2:comment>
-						                            </ns2:comments>
-						                        </ns2:workStatusDetails>
-						                        <ns2:societyKeys>
-						                            <ns2:key cisac = "SOCCODE 1" society = "GEMA">C</ns2:key>
-						                        </ns2:societyKeys>
-						                        <ns2:interestedParties>
-						                            <ns2:interestedParty roleCode = "COMPOSER" source = "ICE" type = "ARTIST">
-						                                <ns2:part type = "FIRST_NAME">firstname 1</ns2:part>
-						                                <ns2:part type = "LAST_NAME">name 1</ns2:part>
-						                                <ns2:ipBaseNumber/>
-						                                <ns2:ipNameNumber/>
-						                                <ns2:iceIpBaseKey/>
-						                                <ns2:iceIpNameKey/>
-						                                <ns2:societyIpNumbers>
-						                                    <ns2:societyIpNumber>
-						                                        <ns2:cisac>perfsoccde 1</ns2:cisac>
-						                                        <ns2:name>socacr 1</ns2:name>
-						                                        <ns2:ipNumber>4</ns2:ipNumber>
-						                                    </ns2:societyIpNumber>
-						                                </ns2:societyIpNumbers>
-						                            </ns2:interestedParty>
-						                        </ns2:interestedParties>
-						                        <ns2:repertoires>
-						                            <ns2:repertoire>
-						                                <ns2:id>repcode 1</ns2:id>
-						                                <ns2:name>name 1</ns2:name>
-						                            </ns2:repertoire>
-						                        </ns2:repertoires>
-						                    </ns2:work>
-						                </ns2:workDetail>
-						            </ns2:workDetails>
-						        </ns1:GetWorkDetailsResponse>
+                        <![CDATA[                   
+							<ns1:GetWorkDetailsResponse xmlns:ns1 = "http://www.gema.de/ESB/Service/ICE/Work-001">
+								<ns2:workDetails xmlns:ns2 = "http://www.gema.de/ESB/Schema/Mega/WorkDetails-001" xsdVersion = "1">
+									<ns2:workDetail iceWorkKey = "3">
+										<ns2:status>
+											<ns2:errorCode>OK</ns2:errorCode>
+											<ns2:errorMessage>msgText 3</ns2:errorMessage>
+										</ns2:status>
+										<ns2:work>
+											<ns2:workStatusDetails>
+												<ns2:iceStatus>1</ns2:iceStatus>
+												<ns2:iceStatusDesc>Work Fully Documented</ns2:iceStatusDesc>
+												<ns2:comments>
+													<ns2:comment>notetext 3</ns2:comment>
+												</ns2:comments>
+											</ns2:workStatusDetails>
+											<ns2:interestedParties>
+												<ns2:interestedParty roleCode = "COMPOSER" source = "ICE" type = "ARTIST">
+													<ns2:part type = "FIRST_NAME">firstname 3</ns2:part>
+													<ns2:part type = "LAST_NAME">name 3</ns2:part>
+													<ns2:ipBaseNumber/>
+													<ns2:ipNameNumber/>
+													<ns2:iceIpBaseKey/>
+													<ns2:iceIpNameKey/>
+													<ns2:societyIpNumbers>
+														<ns2:societyIpNumber>
+															<ns2:cisac/>
+															<ns2:name/>
+															<ns2:ipNumber>4</ns2:ipNumber>
+														</ns2:societyIpNumber>
+													</ns2:societyIpNumbers>
+												</ns2:interestedParty>
+											</ns2:interestedParties>
+											<ns2:repertoires>
+												<ns2:repertoire>
+													<ns2:id>repcode 3</ns2:id>
+													<ns2:name>name 3</ns2:name>
+												</ns2:repertoire>
+											</ns2:repertoires>
+										</ns2:work>
+									</ns2:workDetail>
+								</ns2:workDetails>
+							</ns1:GetWorkDetailsResponse>
 	                       ]]>
                     </data>
                 </message>

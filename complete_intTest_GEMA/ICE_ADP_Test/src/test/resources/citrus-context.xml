@@ -8,11 +8,6 @@
        xmlns:citrus-test="http://www.citrusframework.org/schema/testcase"
        xmlns:context="http://www.springframework.org/schema/context"
        
-       
-       
-       
-      
-       
             
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
@@ -60,12 +55,8 @@
     <citrus-jms:sync-endpoint id="ADP_JMS_ENDPOINT"
                               destination-name="Work001.q.sync"
                               message-converter="soapJmsMessageConverter"
-                              timeout="20000"
-							
+                              timeout="20000"							
     />
-    
-    
-
 
    
     <!-- JMS connection factory and message broker -->
