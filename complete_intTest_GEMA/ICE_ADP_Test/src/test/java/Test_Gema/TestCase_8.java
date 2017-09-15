@@ -1,21 +1,19 @@
 package Test_Gema;
 
 import org.testng.annotations.Test;
+
 import com.consol.citrus.annotations.CitrusXmlTest;
 import com.consol.citrus.testng.AbstractTestNGCitrusTest;
 
 /**
 
  */
-@Test 
+@Test
 
-public class TestCase_5 extends AbstractTestNGCitrusTest {
+public class TestCase_8 extends AbstractTestNGCitrusTest {
 
 
-	@CitrusXmlTest(name = "TestCase_5" )
-    public void testCase5Gema() {}
+	@CitrusXmlTest(name = "TestCase_8")
+    public void testCase8Gema() {}
 
- 
 }
-
-

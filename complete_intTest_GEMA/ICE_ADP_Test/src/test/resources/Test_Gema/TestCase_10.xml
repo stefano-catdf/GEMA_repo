@@ -11,9 +11,8 @@
                   http://www.citrusframework.org/schema/ws/testcase http://www.citrusframework.org/schema/ws/testcase/citrus-ws-testcase.xsd
                   http://www.citrusframework.org/schema/testcase http://www.citrusframework.org/schema/testcase/citrus-testcase.xsd">
 
-        
-
-    <testcase name="TestCase_6">
+       
+    <testcase name="TestCase_10">
         <meta-info>
             <author>Catenate</author>
             <creationdate>2017-09-13</creationdate>
@@ -22,8 +21,7 @@
             <last-updated-on>2017-09-13T19:24:21</last-updated-on>
         </meta-info>
 
-        <description> TestCase 6 :  single work detail request. WorkKey=6. The request contains 1 iceWorkKey. 
-        The ICE response contains the structure _ IAC9361L3 empty. Validation Error raised. The initial message is published on the Business Error Queue.
+        <description> TestCase 10 : The request contains a single iceWorkKey. The ICE response contains the parameter MSG_SERVER=99. A System exception is raised
         </description>
 
         <actions>
@@ -39,7 +37,7 @@
                         <![CDATA[
                         <ns0:GetWorkDetailsRequest xmlns:ns0="http://www.gema.de/ESB/Service/ICE/Work-001">
                             <ns1:workDetails xmlns:ns1="http://www.gema.de/ESB/Schema/Mega/WorkDetails-001" xsdVersion="1">
-                                <ns1:workDetail iceWorkKey="6"/>
+                                <ns1:workDetail iceWorkKey="10"/>
                             </ns1:workDetails>
                         </ns0:GetWorkDetailsRequest>
                         ]]>
@@ -95,7 +93,7 @@
 										<_SHWNATCHAR>Y</_SHWNATCHAR>
 									</_IACSESSION>
 									<_IAC9361I>
-										<_WORKKEY>6.0</_WORKKEY>
+										<_WORKKEY>10.0</_WORKKEY>
 										<_REPLIST>Y</_REPLIST>
 										<_WRKREFLIST>N</_WRKREFLIST>
 										<_NOTELIST>N</_NOTELIST>
@@ -115,46 +113,47 @@
 				<message>
 					<data>
                         <![CDATA[
-							<ns0:iac9361Response xmlns:ns0 = "http://iac9361.wsbeans.iseries/">
-												
-										<return>
-											<_IACRESLIST>
-												<_RETNOOFROW>0</_RETNOOFROW>
-											</_IACRESLIST>
-											<_IACRETMSGS>
-												<_MSGSEVER>0</_MSGSEVER>
-												<_MSGTEXT>mesgText 6</_MSGTEXT>
-											</_IACRETMSGS>
-											<_IAC9361D>
-												<_WORKKEY>6</_WORKKEY>
-												<_WORKTITLE>Work title 6</_WORKTITLE>
-												<_WORKSTATUS>1</_WORKSTATUS>
-											</_IAC9361D>
-											<_IAC9361L1>
-												<_LOCAFFNBR>4</_LOCAFFNBR>
-												<_NAME>name 6</_NAME>
-												<_FIRSTNAME>firstname 6</_FIRSTNAME>
-												<_CAECODE>PA</_CAECODE>
-												<_MECEXCEPT>mecexcept 6</_MECEXCEPT>
-												<_PERFSOCCDE>perfsoccde 6</_PERFSOCCDE>
-												<_PERFSOCACR>socacr 6</_PERFSOCACR>
-											</_IAC9361L1>
-											<_IAC9361L2>
-												<_REPCODE>repcode 6</_REPCODE>
-												<_NAME>name 6</_NAME>
-											</_IAC9361L2>
-											<_IAC9361L3>
-											</_IAC9361L3>
-											<_IAC9361L4>
-												<_NOTETEXT>notetext 6</_NOTETEXT>
-											</_IAC9361L4>
-										</return>									
-									</ns0:iac9361Response>
-      							]]>
+							<ns0:iac9361Response xmlns:ns0 = "http://iac9361.wsbeans.iseries/">										
+								<return>
+									<_IACRESLIST>
+										<_RETNOOFROW>0</_RETNOOFROW>
+									</_IACRESLIST>
+									<_IACRETMSGS>
+										<_MSGSEVER>99</_MSGSEVER>
+										<_MSGTEXT>mesgText 10</_MSGTEXT>
+									</_IACRETMSGS>
+									<_IAC9361D>
+										<_WORKKEY>10</_WORKKEY>
+										<_WORKTITLE>Work title 10</_WORKTITLE>
+										<_WORKSTATUS>1</_WORKSTATUS>
+									</_IAC9361D>
+									<_IAC9361L1>
+										<_LOCAFFNBR>4</_LOCAFFNBR>
+										<_NAME>name 10</_NAME>
+										<_FIRSTNAME>firstname 10</_FIRSTNAME>
+										<_CAECODE>PA</_CAECODE>
+										<_MECEXCEPT>mecexcept 10</_MECEXCEPT>
+										<_PERFSOCCDE>perfsoccde 10</_PERFSOCCDE>
+										<_PERFSOCACR>socacr 10</_PERFSOCACR>
+									</_IAC9361L1>
+									<_IAC9361L2>
+										<_REPCODE>repcode 10</_REPCODE>
+										<_NAME>name 10</_NAME>
+									</_IAC9361L2>
+									<_IAC9361L3>
+										<_SOCCODE>SOCCODE 10</_SOCCODE>
+										<_SOCACRO>GEMA</_SOCACRO>
+										<_WRKREF>C</_WRKREF>
+									</_IAC9361L3>
+									<_IAC9361L4>
+										<_NOTETEXT>notetext 10</_NOTETEXT>
+									</_IAC9361L4>
+								</return>
+							</ns0:iac9361Response>
+				      		]]>
                     </data>
 				</message>
 			</ws:send>
-
 			</sequential>
 			</parallel>
 
@@ -171,54 +170,27 @@
 								   <faultstring xmlns="">This is an operation implementation generated fault</faultstring>
 								   <faultactor xmlns=""/>
 								   <detail xmlns="">
-								      <ns:validationException xmlns:ns="http://www.gema.de/ESB/Schema/Common/BaseTypes-001" xmlns:ns0="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+								      <ns:businessException xmlns:ns="http://www.gema.de/ESB/Schema/Common/BaseTypes-001" xmlns:ns0="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 								         <ns:errorDetails>
-								            <ns:errorCode>ICE000010</ns:errorCode>
-								            <ns:errorType>Validation</ns:errorType>
+								            <ns:errorCode>ESB000005</ns:errorCode>
+								            <ns:errorType>Business</ns:errorType>
 								            <ns:errorSystem>localhost.localdomain</ns:errorSystem>
-								            <ns:errorMessage>Validation Error, check data_mapping&#13;</ns:errorMessage>
-								            <ns:errorInformation>Invalid Request Message for iceWorkKey: 6</ns:errorInformation>
+								            <ns:errorMessage>Given ESB ErrorCode could not be found. Check ErrorInformation for details</ns:errorMessage>
+								            <ns:errorInformation>ICE000009: Request failed on ICE side. ICE Message Severity=99 for iceWorkKey: 10</ns:errorInformation>
 								            <ns:errorApplication>ICE</ns:errorApplication>
 								            <ns:errorTimestamp>@ignore@</ns:errorTimestamp>
 								            <ns:errorSubsystem>ICEADP</ns:errorSubsystem>
-								            <ns:errorClass>BindException</ns:errorClass>
 								         </ns:errorDetails>
-								      </ns:validationException>
+								      </ns:businessException>
 								   </detail>
 								</SOAP-ENV:Fault>
+
+
 	                       ]]>
                     </data>
                 </message>
             </ws:receive>
-            
-            <receive endpoint="BUSINESS_ERROR_QUEUE">
-            	<message>
-					<data>
-						<![CDATA[
-							<input>     
-								<ns:traceIdentifier xmlns:ns="http://www.gema.de/ESB/Schema/Common/BaseTypes-001" xmlns:ns0="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">         
-									<ns:bpId>1</ns:bpId>         
-									<ns:bpName>Work1</ns:bpName>         
-									<ns:boId>             
-										<ns:name>A</ns:name>             
-										<ns:value>A</ns:value>         
-									</ns:boId>         
-									<ns:callingApp>TEST</ns:callingApp>         
-									<ns:initiator>TEST</ns:initiator>     
-								</ns:traceIdentifier>     	
-								<ns:controllObject xmlns:ns="http://www.gema.de/ESB/Schema/Common/BaseTypes-001" xmlns:ns0="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">         
-									<ns:timeOut_s>20</ns:timeOut_s>         
-									<ns:transactionId>1505127273191</ns:transactionId>     
-								</ns:controllObject>     
-								<ns0:GetWorkDetailsRequest xmlns:ns0="http://www.gema.de/ESB/Service/ICE/Work-001" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">         <ns1:workDetails xmlns:ns1="http://www.gema.de/ESB/Schema/Mega/WorkDetails-001" xsdVersion="1">             
-									<ns1:workDetail iceWorkKey="6"/>         
-								</ns1:workDetails>     
-								</ns0:GetWorkDetailsRequest> 
-							</input>
-						]]>
-					</data>
-            	</message>            
-            </receive>
-        </actions>
+ 
+         </actions>
     </testcase>
 </spring:beans>

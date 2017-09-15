@@ -58,6 +58,12 @@
                               timeout="20000"							
     />
 
+
+    <citrus-jms:endpoint id="BUSINESS_ERROR_QUEUE"
+                              destination-name="Work001.q.sync.BE"
+                              timeout="20000"							
+    />
+
    
     <!-- JMS connection factory and message broker -->
     <bean id="connectionFactory" class="com.tibco.tibjms.TibjmsConnectionFactory">
